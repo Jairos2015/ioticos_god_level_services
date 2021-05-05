@@ -42,12 +42,12 @@ services:
     volumes:
       - ./mongodata:/data/db
     ports:
-      - ${MONGO_EXT_PORT}:27017
+      - ${MONGO_PORT}:27017
 
   emqx:
     container_name: emqx
     image: emqx/emqx:4.2.3
-    restart: always
+    #restart: always
 
     ports:
       - 18083:18083
@@ -86,7 +86,7 @@ services:
       EMQX_AUTH__MONGO__TOPOLOGY__POOL_SIZE: 1
       EMQX_AUTH__MONGO__TOPOLOGY__MAX_OVERFLOW: 0
 
-      EMQX_AUTH__MONGO__SERVER: "mongo:${MONGO_EXT_PORT}"
+      EMQX_AUTH__MONGO__SERVER: "mongo:${MONGO_PORT}"
       EMQX_AUTH__MONGO__POOL: 8
 
       EMQX_AUTH__MONGO__LOGIN: "${MONGO_USERNAME}"

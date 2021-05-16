@@ -304,6 +304,11 @@ cd app
 sudo sh -c "echo 'environment=prod' >> $filename"
 sudo sh -c "echo '' >> $filename"
 
+#TIME ZONE
+sudo sh -c " echo '# TIMEZONE (all containers).' >> $filename"
+sudo sh -c " echo 'TZ=${TZ}' >> $filename"
+sudo sh -c " echo '' >> $filename"
+
 #A P I  - N O D E 
 sudo sh -c "echo '#A P I  - N O D E ' >> $filename"
 sudo sh -c "echo 'API_PORT=3001' >> $filename"
